@@ -1,0 +1,32 @@
+; Production MD, no restraints. 5,000,000 steps x 2 fs = 10 ns
+; (the paper analyses only the first 2 ns; see README)
+integrator             = md
+dt                     = 0.002
+nsteps                 = 5000000
+nstxout-compressed     = 5000
+nstenergy              = 5000
+nstlog                 = 5000
+continuation           = yes
+gen_vel                = no
+tcoupl                 = V-rescale
+tc-grps                = Protein Non-Protein
+tau_t                  = 0.1 0.1
+ref_t                  = 300 300
+pcoupl                 = Parrinello-Rahman
+pcoupltype             = isotropic
+tau_p                  = 2.0
+ref_p                  = 1.0
+compressibility        = 4.5e-5
+; --- shared by all stages ---
+constraints            = h-bonds
+constraint-algorithm   = lincs
+cutoff-scheme          = Verlet
+nstlist                = 20
+coulombtype            = PME
+rcoulomb               = 1.2
+vdwtype                = cutoff
+vdw-modifier           = force-switch
+rvdw-switch            = 1.0
+rvdw                   = 1.2
+DispCorr               = no
+pbc                    = xyz

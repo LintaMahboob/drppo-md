@@ -1,0 +1,12 @@
+name: drppo-md
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  # GROMACS 2026.3 was used for the paper. For a GPU build see README.
+  - gromacs
+  - numpy
+  - pandas
+  - matplotlib
+  - mdanalysis
+  - pyyaml

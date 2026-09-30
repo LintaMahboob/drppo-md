@@ -1,0 +1,18 @@
+; Energy minimisation
+integrator             = steep
+emtol                  = 1000.0
+emstep                 = 0.01
+nsteps                 = 50000
+; --- shared by all stages ---
+constraints            = h-bonds
+constraint-algorithm   = lincs
+cutoff-scheme          = Verlet
+nstlist                = 20
+coulombtype            = PME
+rcoulomb               = 1.2
+vdwtype                = cutoff
+vdw-modifier           = force-switch
+rvdw-switch            = 1.0
+rvdw                   = 1.2
+DispCorr               = no
+pbc                    = xyz

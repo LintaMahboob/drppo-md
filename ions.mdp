@@ -1,0 +1,16 @@
+; Dummy run used only to generate a .tpr for genion
+integrator             = steep
+nsteps                 = 0
+; --- shared by all stages ---
+constraints            = h-bonds
+constraint-algorithm   = lincs
+cutoff-scheme          = Verlet
+nstlist                = 20
+coulombtype            = PME
+rcoulomb               = 1.2
+vdwtype                = cutoff
+vdw-modifier           = force-switch
+rvdw-switch            = 1.0
+rvdw                   = 1.2
+DispCorr               = no
+pbc                    = xyz

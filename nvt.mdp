@@ -1,0 +1,30 @@
+; NVT equilibration, 100 ps, position restraints on
+define                 = -DPOSRES
+integrator             = md
+dt                     = 0.002
+nsteps                 = 50000
+nstxout-compressed     = 5000
+nstenergy              = 500
+nstlog                 = 5000
+continuation           = no
+gen_vel                = yes
+gen_temp               = 300
+gen_seed               = -1
+tcoupl                 = V-rescale
+tc-grps                = Protein Non-Protein
+tau_t                  = 0.1 0.1
+ref_t                  = 300 300
+pcoupl                 = no
+; --- shared by all stages ---
+constraints            = h-bonds
+constraint-algorithm   = lincs
+cutoff-scheme          = Verlet
+nstlist                = 20
+coulombtype            = PME
+rcoulomb               = 1.2
+vdwtype                = cutoff
+vdw-modifier           = force-switch
+rvdw-switch            = 1.0
+rvdw                   = 1.2
+DispCorr               = no
+pbc                    = xyz

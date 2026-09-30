@@ -1,0 +1,34 @@
+# Per-protein settings. Residue numbers are the ORIGINAL model numbering.
+#
+#   model  : path (relative to the repo root) of the ColabFold/AlphaFold PDB
+#   first  : first residue kept from the model (trimming)
+#   last   : last residue kept from the model
+#   his    : histidines whose NE2-NE2 distances are analysed
+#   core   : MDAnalysis selection for the "core" backbone RMSD
+#            (set to null to skip the core RMSD; the column is then NaN)
+
+analysis_window_ps: 2000   # only frames with time <= this value are analysed
+
+proteins:
+  DrPPO1:
+    model: models/DrPPO1_rank_001.pdb
+    first: 86
+    last: 255
+    his: [181, 202, 203, 211]
+    core: "backbone and resid 100-240"
+
+  DrPPO2:
+    model: models/DrPPO2_rank_001.pdb
+    first: 20
+    last: 333
+    # His137 was simulated but is not part of the five-histidine cluster
+    # described in the paper, so it is not analysed here.
+    his: [116, 146, 268, 272, 301]
+    core: null   # TODO: fill in the core residue range used for DrPPO2
+
+  DrPPO7:
+    model: models/DrPPO7_rank_001.pdb
+    first: 105
+    last: 460
+    his: [190, 211, 220, 322, 326, 355, 356]
+    core: null   # TODO: fill in the core residue range used for DrPPO7
